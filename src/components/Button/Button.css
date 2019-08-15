@@ -1,0 +1,13 @@
+#button{
+    border-radius: 5px;
+    background: #03738f;
+    border: 0;
+    color: whitesmoke;
+    padding: 5px 15px;
+    outline:none;
+    transition: all 0.3s linear;
+}
+#button:hover{
+    cursor: pointer;
+    transform: scale(1.2)
+}
