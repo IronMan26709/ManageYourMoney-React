@@ -21,7 +21,7 @@ input:disabled {
     padding: 5px 10px;
     color: black;
 }
-.control-label{
+.control-label,.control-label-2{
 	color: whitesmoke ; 
     margin-left: 5%;
 }
@@ -29,4 +29,8 @@ input:disabled {
     content: "*";
     color: red;
     margin-right: 10px;
+}
+.control-label-2::before{
+    content: " ";
+    margin-right: 18px;
 }

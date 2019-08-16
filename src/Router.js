@@ -21,7 +21,7 @@ export default ()=>{
 					<Route 
 						exact
 					    path="/NewArrival"
-			       	    component={ props => (<NewArrival/>)}/>
+			       	    render={ props => (<NewArrival/>)}/>
 					<Route
 						exact
 						path="/Registration"

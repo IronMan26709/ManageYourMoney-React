@@ -17,10 +17,10 @@ export default ()=>{
 				</div>
 				<div className="rightPart">
 					<form>
-						<Input id="input" type="name" title="Enter your name"/>
-						<Input id="input" type="email" title="Enter your email"/>
-						<Input id="input" type="password" title="Enter your password"/>
-						<Input id="input" type="password" title="Repeat password"/>
+						<Input id="input" nesesorily="true"type="name" title="Enter your name"/>
+						<Input id="input" nesesorily="true"type="email" title="Enter your email"/>
+						<Input id="input" nesesorily="true"type="password" title="Enter your password"/>
+						<Input id="input" nesesorily="true"type="password" title="Repeat password"/>
 						<Input id="input" type="file" title="Choose your photo"/>
 					</form>
 					<Button className="wrapButton" title="Register"/>

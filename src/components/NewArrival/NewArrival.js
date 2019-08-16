@@ -8,17 +8,14 @@ import "../../styles/SympleComponent.css";
 	constructor(){
 		super()
 	}
-	amountValidation(e){
-		console.log(this.refs.inp.value)
-	}
 	render(){
 		return(
 			<div className="NewArrival">
 				<Template title="New Arrival"/>
 				<div className="mainBlock">
-				<input className="InputElem" ref={"inp"} type="number" title="Amount" onChange={this.amountValidation.bind(this)}/>
-					<Input className="InputElem"  type="text" title="Describe receipt" />
-					<Input className="InputElem"  type="text" title="Comment"/>
+					<Input className="InputElem" nesesorily="true" type="number" title="Amount"/>
+					<Input className="InputElem" nesesorily="false"type="text" title="Describe receipt" />
+					<Input className="InputElem" nesesorily="true" type="text" title="Comment"/>
 					<Button title="New Arrival" click={(e) => console.log(this)} />
 				</div>
 			</div>
