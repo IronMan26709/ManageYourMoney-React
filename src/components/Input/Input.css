@@ -11,7 +11,8 @@ input:disabled {
     align-items: flex-start;
     width:90%;
 } 
-.form-control, .select{
+.form-control,.form-control-invalid,
+.form-control-valid,.select{
     width: 100%;
     height: 30px;
     margin: 5px 0 10px;
@@ -20,6 +21,12 @@ input:disabled {
     outline:none;
     padding: 5px 10px;
     color: black;
+}
+.form-control-invalid{
+    background: #fff;
+}
+.form-control-valid{
+    background: #79f487;
 }
 .control-label,.control-label-2{
 	color: whitesmoke ; 

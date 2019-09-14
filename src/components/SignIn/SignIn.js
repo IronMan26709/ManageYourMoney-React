@@ -10,8 +10,8 @@ export default ()=>{
 			<div className="SignIn">
 				<Template title="Sign In"/>
 				<div className="mainBlock">
-					<Input className="InputElem" nesesorily="true" id="input" type="name" title="Enter your name"/>
-					<Input className="InputElem" nesesorily="true" id="input" type="email"title="Enter your email"/>
+					<Input className="InputElem" required="true" id="input" type="name" title="Enter your name"/>
+					<Input className="InputElem" required="true" id="input" type="email"title="Enter your email"/>
 					<Button title="Sign In" />
 				</div>
 			</div>

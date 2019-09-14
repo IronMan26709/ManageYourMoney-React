@@ -13,9 +13,9 @@ import "../../styles/SympleComponent.css";
 			<div className="NewArrival">
 				<Template title="New Arrival"/>
 				<div className="mainBlock">
-					<Input className="InputElem" nesesorily="true" type="number" title="Amount"/>
-					<Input className="InputElem" nesesorily="false"type="text" title="Describe receipt" />
-					<Input className="InputElem" nesesorily="true" type="text" title="Comment"/>
+					<Input className="InputElem" required="true" type="number" title="Amount"/>
+					<Input className="InputElem" required="false"type="text" title="Describe receipt" />
+					<Input className="InputElem" required="true" type="text" title="Comment"/>
 					<Button title="New Arrival" click={(e) => console.log(this)} />
 				</div>
 			</div>

@@ -8,18 +8,17 @@ class Input extends React.Component {
 		super(props)
 		this.props = props
 		this.state= {
-			nesesorily: false,
-			currentInput:{},
+			required: false,
 			strValue: "",
 			numValue: 0,
 			type: "string",
 		}
 	}
 	componentDidMount= () => {
-		this.isItNesesory()
+		this.isItRequired()
 	 }
-	isItNesesory = () => {
-		let triger = this.props.nesesorily
+	isItRequired = () => {
+		let triger = this.props.required
 		triger ==="true" ?this.validetInput() : this.simpleInput()
 	}
 	validetInput = () => {
@@ -31,21 +30,38 @@ class Input extends React.Component {
 		label.className ="control-label-2"
 	}
 	typeValid (event) {
-		this.setState({ currentInput: event.target})
 		let currentInput = event.target
+		let currentInputFiles = event.target.files
 		let theInput = event.target.value 
 		let input = Number(theInput)
-		
+		let validInput = ()=>{
+			if(this.props.required ==="true")
+			currentInput.style.background = "#79f487"
+		} 
+		let inValidInput = ()=>{
+			currentInput.style.background = "#fff"
+		}
 		switch(event.target.type){
 			case"number": 
 			    currentInput.oninput="validity.valid||(value='');"
-			    input > 0 ? currentInput.style.background = "#79f487": currentInput.style.background = "#fff"
+			    input > 0 ? validInput(): inValidInput()
 			    currentInput.value.match(/^\d+/)
 			    currentInput.min = 0
-			    switch(event.target.title){}
 		    break
 			case"text":
-				theInput !== "" ? currentInput.style.background = "#79f487": currentInput.style.background = "#ffff"
+				theInput.match(/[0-9a-zA-Z]/) ? validInput(): inValidInput()	
+			break
+			case"email":
+				theInput.indexOf("@") > 0 &&  theInput.indexOf(".") > 0 ? validInput(): inValidInput()
+			break
+			case"password":
+				theInput.match(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{6,}$/) ? validInput(): inValidInput()
+			break
+			case"file":
+				for ( var file of currentInputFiles ) {
+			        if ( file.type.split('/')[0] !== 'image' )
+			        	 document.write("Это не фото!!!!")
+			        }
 			break
 		}
 	}
@@ -69,12 +85,11 @@ class Input extends React.Component {
 	// 	// this.typeValid()
 	// 	// this.selectValidWay()	
 	// }
-
 	render() {
 		return(
-			<section title nesesorily className={this.props.className } >
+			<section  required className={this.props.className } >
 	            <label className="control-label" ref={"label"}  htmlFor={this.props.htmlfor}>{this.props.title}</label>
-	            <input type={this.props.type} ref={"inp"} onChange={this.typeValid.bind(this)} className="form-control" />
+	            <input disabled={this.props.disabled} onChange = {this.props.onChange} type={this.props.type} value = {this.props.value} className="form-control" />
 	        </section>
 		);
 	}
